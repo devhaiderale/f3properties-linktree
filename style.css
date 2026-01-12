@@ -1,243 +1,256 @@
-    :root {
-        --bg-color: #0f0f0f;
-        --fb-color: #1877F2;
-        --yt-color: #FF0000;
-        --li-color: #0077B5;
-        --web-color: #333333;
-        --tiktok-color: #1a1a1a;
-        --white: #ffffff;
-        --text-dark: #222;
+:root {
+    --bg-color: #0f0f0f;
+    --white: #ffffff;
+    --text-dark: #222;
+    --card-height: 60px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.85), #0f0f0f),
+        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--white);
+    min-height: 100vh;
+
+    /* Centering Magic */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Centers content vertically */
+}
+
+/* Limit width for mobile feel on desktop */
+.container {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* --- Header Section --- */
+header {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.logo-circle {
+    width: 100px;
+    height: 100px;
+    background-color: #000;
+    border-radius: 50%;
+    border: 2px solid #d4af37;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -40px;
+    /* Pulls banner up */
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.logo-circle img {
+    width: 60%;
+    height: auto;
+}
+
+.cta-banner {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--text-dark);
+    width: 100%;
+    padding: 50px 20px 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cta-banner h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+.cta-banner span {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.sub-header {
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+/* --- Links List --- */
+.links-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Common Card Styles */
+.link-card {
+    --brand-color: #555;
+    /* Default fallback */
+    display: flex;
+    text-decoration: none;
+    width: 100%;
+    height: var(--card-height);
+    transition: transform 0.2s ease, filter 0.2s ease;
+
+    /* Staggered Animation Setup */
+    opacity: 0;
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+.link-card:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+/* Icon Box (Left Speech Bubble Head) */
+.icon-box {
+    width: var(--card-height);
+    min-width: var(--card-height);
+    background-color: var(--white);
+    color: var(--brand-color);
+    /* Uses variable defined in class */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+/* The Triangle Tail */
+.icon-box::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid var(--white);
+}
+
+/* Text Box (Right) */
+.text-box {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: var(--brand-color);
+    /* Uses variable */
+}
+
+/* --- Brand Specific Configuration --- */
+/* Just set the color variable here! Much cleaner. */
+.fb {
+    --brand-color: #1877F2;
+    animation-delay: 0.1s;
+}
+
+.yt {
+    --brand-color: #FF0000;
+    animation-delay: 0.2s;
+}
+
+.li {
+    --brand-color: #0077B5;
+    animation-delay: 0.3s;
+}
+
+.web {
+    --brand-color: #333333;
+    animation-delay: 0.4s;
+}
+
+.tt {
+    --brand-color: #1a1a1a;
+    animation-delay: 0.5s;
+}
+
+/* Instagram Special Case (Gradient) */
+.insta {
+    animation-delay: 0.15s;
+}
+
+.insta .text-box {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.insta .icon-box i {
+    background: linear-gradient(45deg, #f09433, #bc1888);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* --- Animations & Decorations --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
     }
 
-    body {
-        font-family: 'Montserrat', sans-serif;
-        background-color: var(--bg-color);
-        background-image:
-            linear-gradient(to bottom, rgba(0, 0, 0, 0.8), #0f0f0f),
-            url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
-        background-size: cover;
-        background-position: top center;
-        background-attachment: fixed;
-        color: var(--white);
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    .container {
-        width: 100%;
-        max-width: 480px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        animation: fadeIn 0.8s ease-out;
-    }
-
-    header {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 30px;
-        text-align: center;
-    }
-
-    .logo-circle {
-        width: 100px;
-        height: 100px;
-        background-color: #000;
-        border-radius: 50%;
-        border: 2px solid #d4af37;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: -40px;
-        z-index: 10;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .logo-circle img {
-        width: 60%;
-        height: auto;
-    }
-
-    .cta-banner {
-        background-color: rgba(255, 255, 255, 0.9);
-        color: var(--text-dark);
-        width: 100%;
-        padding: 50px 20px 20px 20px;
-        border-radius: 15px;
-        margin-bottom: 30px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .cta-banner h1 {
-        font-size: 1.2rem;
-        font-weight: 700;
-        line-height: 1.4;
-        text-transform: uppercase;
-    }
-
-    .cta-banner span {
-        font-weight: 400;
-        font-size: 1rem;
-    }
-
-    .sub-header {
-        font-size: 1.1rem;
-        margin-bottom: 20px;
-        font-weight: 400;
-        letter-spacing: 0.5px;
-    }
-
-    .links-list {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .link-card {
-        display: flex;
-        text-decoration: none;
-        width: 100%;
-        height: 60px;
-        transition: transform 0.2s ease, filter 0.2s ease;
-    }
-
-    .link-card:hover {
-        transform: translateY(-3px);
-        filter: brightness(1.1);
-    }
-
-    .icon-box {
-        width: 60px;
-        min-width: 60px;
-        background-color: var(--white);
-        color: var(--text-dark);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-        position: relative;
-        z-index: 2;
-    }
-
-    .icon-box::after {
-        content: '';
-        position: absolute;
-        right: -10px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 0;
-        height: 0;
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent;
-        border-left: 10px solid var(--white);
-    }
-
-    .text-box {
-        flex-grow: 1;
-        display: flex;
-        align-items: center;
-        padding-left: 20px;
-        color: white;
-        font-weight: 600;
-        font-size: 0.95rem;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
-
-    .fb .text-box {
-        background-color: var(--fb-color);
-    }
-
-    .fb .icon-box {
-        color: var(--fb-color);
-    }
-
-    .insta .text-box {
-        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    }
-
-    .insta .icon-box {
-        background-color: var(--white);
-    }
-
-    .insta .icon-box i {
-        background: linear-gradient(45deg, #f09433, #bc1888);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        display: inline-block;
-    }
-
-    .yt .text-box {
-        background-color: var(--yt-color);
-    }
-
-    .yt .icon-box {
-        color: var(--yt-color);
-    }
-
-    .li .text-box {
-        background-color: var(--li-color);
-    }
-
-    .li .icon-box {
-        color: var(--li-color);
-    }
-
-    .web .text-box {
-        background-color: var(--web-color);
-    }
-
-    .web .icon-box {
-        color: var(--web-color);
-    }
-
-
-    .tt .text-box {
-        background-color: var(--tiktok-color);
-    }
-
-    .tt .icon-box {
-        color: var(--tiktok-color);
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .bg-lines {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: 300px;
-        height: 300px;
-        background: repeating-linear-gradient(-45deg,
-                transparent,
-                transparent 10px,
-                rgba(212, 175, 55, 0.05) 10px,
-                rgba(212, 175, 55, 0.05) 20px);
-        z-index: -1;
-        pointer-events: none;
-    }
+.bg-lines {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: repeating-linear-gradient(-45deg,
+            transparent,
+            transparent 10px,
+            rgba(212, 175, 55, 0.05) 10px,
+            rgba(212, 175, 55, 0.05) 20px);
+    z-index: -1;
+    pointer-events: none;
+}
