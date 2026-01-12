@@ -18,7 +18,6 @@
     body {
         font-family: 'Montserrat', sans-serif;
         background-color: var(--bg-color);
-        /* Generic city background - replace URL with your own if needed */
         background-image:
             linear-gradient(to bottom, rgba(0, 0, 0, 0.8), #0f0f0f),
             url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
@@ -32,7 +31,6 @@
         align-items: center;
     }
 
-    /* Container for mobile-width constraint */
     .container {
         width: 100%;
         max-width: 480px;
@@ -43,7 +41,6 @@
         animation: fadeIn 0.8s ease-out;
     }
 
-    /* Header Section */
     header {
         width: 100%;
         display: flex;
@@ -59,12 +56,10 @@
         background-color: #000;
         border-radius: 50%;
         border: 2px solid #d4af37;
-        /* Gold border hint */
         display: flex;
         align-items: center;
         justify-content: center;
         margin-bottom: -40px;
-        /* Overlap effect */
         z-index: 10;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     }
@@ -79,7 +74,6 @@
         color: var(--text-dark);
         width: 100%;
         padding: 50px 20px 20px 20px;
-        /* Top padding accounts for logo overlap */
         border-radius: 15px;
         margin-bottom: 30px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -104,7 +98,6 @@
         letter-spacing: 0.5px;
     }
 
-    /* Links Section */
     .links-list {
         width: 100%;
         display: flex;
@@ -125,7 +118,6 @@
         filter: brightness(1.1);
     }
 
-    /* The Icon Box (Left) */
     .icon-box {
         width: 60px;
         min-width: 60px;
@@ -141,12 +133,10 @@
         z-index: 2;
     }
 
-    /* The Triangle "Speech Bubble" Tail */
     .icon-box::after {
         content: '';
         position: absolute;
         right: -10px;
-        /* Push it out to overlap the right side */
         top: 50%;
         transform: translateY(-50%);
         width: 0;
@@ -154,16 +144,13 @@
         border-top: 10px solid transparent;
         border-bottom: 10px solid transparent;
         border-left: 10px solid var(--white);
-        /* The arrow color */
     }
 
-    /* The Text Box (Right) */
     .text-box {
         flex-grow: 1;
         display: flex;
         align-items: center;
         padding-left: 20px;
-        /* Space for the arrow */
         color: white;
         font-weight: 600;
         font-size: 0.95rem;
@@ -171,9 +158,6 @@
         border-bottom-right-radius: 10px;
     }
 
-    /* --- BRAND SPECIFIC COLORS --- */
-
-    /* Facebook */
     .fb .text-box {
         background-color: var(--fb-color);
     }
@@ -182,18 +166,15 @@
         color: var(--fb-color);
     }
 
-    /* Instagram (FIXED) */
     .insta .text-box {
         background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     }
 
     .insta .icon-box {
         background-color: var(--white);
-        /* Ensures box stays white */
     }
 
     .insta .icon-box i {
-        /* Applies gradient only to the icon */
         background: linear-gradient(45deg, #f09433, #bc1888);
         -webkit-background-clip: text;
         background-clip: text;
@@ -201,7 +182,6 @@
         display: inline-block;
     }
 
-    /* YouTube */
     .yt .text-box {
         background-color: var(--yt-color);
     }
@@ -210,7 +190,6 @@
         color: var(--yt-color);
     }
 
-    /* LinkedIn */
     .li .text-box {
         background-color: var(--li-color);
     }
@@ -219,7 +198,6 @@
         color: var(--li-color);
     }
 
-    /* Website */
     .web .text-box {
         background-color: var(--web-color);
     }
@@ -228,7 +206,7 @@
         color: var(--web-color);
     }
 
-    /* TikTok */
+
     .tt .text-box {
         background-color: var(--tiktok-color);
     }
@@ -237,7 +215,6 @@
         color: var(--tiktok-color);
     }
 
-    /* Animation */
     @keyframes fadeIn {
         from {
             opacity: 0;
@@ -250,7 +227,6 @@
         }
     }
 
-    /* Decorative background lines */
     .bg-lines {
         position: fixed;
         bottom: 0;
