@@ -22,16 +22,12 @@ body {
     background-attachment: fixed;
     color: var(--white);
     min-height: 100vh;
-
-    /* Centering Magic */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* Centers content vertically */
 }
 
-/* Limit width for mobile feel on desktop */
 .container {
     width: 100%;
     max-width: 480px;
@@ -42,7 +38,6 @@ body {
     animation: fadeIn 0.8s ease-out;
 }
 
-/* --- Header Section --- */
 header {
     width: 100%;
     text-align: center;
@@ -62,7 +57,6 @@ header {
     align-items: center;
     justify-content: center;
     margin-bottom: -40px;
-    /* Pulls banner up */
     z-index: 10;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
@@ -101,7 +95,6 @@ header {
     margin-bottom: 20px;
 }
 
-/* --- Links List --- */
 .links-list {
     width: 100%;
     display: flex;
@@ -109,17 +102,13 @@ header {
     gap: 15px;
 }
 
-/* Common Card Styles */
 .link-card {
     --brand-color: #555;
-    /* Default fallback */
     display: flex;
     text-decoration: none;
     width: 100%;
     height: var(--card-height);
     transition: transform 0.2s ease, filter 0.2s ease;
-
-    /* Staggered Animation Setup */
     opacity: 0;
     animation: slideUp 0.5s ease-out forwards;
 }
@@ -129,13 +118,11 @@ header {
     filter: brightness(1.1);
 }
 
-/* Icon Box (Left Speech Bubble Head) */
 .icon-box {
     width: var(--card-height);
     min-width: var(--card-height);
     background-color: var(--white);
     color: var(--brand-color);
-    /* Uses variable defined in class */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -146,7 +133,6 @@ header {
     z-index: 2;
 }
 
-/* The Triangle Tail */
 .icon-box::after {
     content: '';
     position: absolute;
@@ -158,7 +144,6 @@ header {
     border-left: 10px solid var(--white);
 }
 
-/* Text Box (Right) */
 .text-box {
     flex-grow: 1;
     display: flex;
@@ -170,11 +155,8 @@ header {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: var(--brand-color);
-    /* Uses variable */
 }
 
-/* --- Brand Specific Configuration --- */
-/* Just set the color variable here! Much cleaner. */
 .fb {
     --brand-color: #1877F2;
     animation-delay: 0.1s;
@@ -200,7 +182,6 @@ header {
     animation-delay: 0.5s;
 }
 
-/* Instagram Special Case (Gradient) */
 .insta {
     animation-delay: 0.15s;
 }
@@ -217,7 +198,6 @@ header {
     display: inline-block;
 }
 
-/* --- Animations & Decorations --- */
 @keyframes fadeIn {
     from {
         opacity: 0;
